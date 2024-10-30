@@ -19,6 +19,9 @@
 
 ## 使用方式
 ### setting.gradle
+
+**方式一**
+
 ```Kotlin
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -33,7 +36,14 @@ dependencyResolutionManagement {
 ```Kotlin
     implementation ("com.github.simonniex:SimonCityPicker2:2.4.0")
 ```
-### 使用方式
+
+---
+
+**方式二**
+
+[下载 SimonCityPicker2 AAR 文件](https://github.com/simonniex/SimonCityPicker2/releases/download/v2.4.0/SimonCityPicker2-2.4.0.aar)
+
+## 案例
 ```Kotlin
 @Composable
 fun Demo() {
