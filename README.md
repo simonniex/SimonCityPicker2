@@ -1,4 +1,4 @@
-最新版本！！！v2.4.0
+基于Kotlin DSL开发的全新版本！！！
 # 基于JetpackCompose的省市县级联选择器
 ## 环境
 
@@ -13,7 +13,9 @@
 
 2.利用状态管理和LazyListState实现三级联动
 
-3.使用JetpackCompose等处理交互逻辑
+3.使用JetpackCompose等处理交互逻辑与UI管理
+
+4.新增flow等高阶用法
 
 ## 使用方式
 ### setting.gradle
@@ -23,50 +25,56 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        maven { url = uri("https://jitpack.io") }
     }
 }
 ```
 ### build.gradle(:app)
 ```Kotlin
-    implementation 'com.github.simonniex:SimonCityPicker:2.2.0'
+    implementation ("com.github.simonniex:SimonCityPicker2:2.4.0")
 ```
-### YourActivity
+### 使用方式
 ```Kotlin
-SimonCityPicker(
-    context = context,
-    isCity = isCity,
-    onCitySelected = { city ->
-        selectedCity=city
-        isCity = false
-    }
-)
-```
-## 案例
+@Composable
+fun Demo() {
+    // 创建一个上下文用于 Toast
+    val context = LocalContext.current
 
-```kotlin
-val context = LocalContext.current
-var selectedCity by remember { mutableStateOf("请选择城市") }
-var isCity by remember { mutableStateOf(false) }
-Row(
-    horizontalArrangement = Arrangement.Center,
-    modifier = Modifier.fillMaxWidth().padding(100.dp)
-) {
-    TextButton(modifier = Modifier.background(Color.Gray),onClick = {
-        isCity = true
-    }){
-        Text(selectedCity)
+    // 选择城市的状态
+    var selectedCity by remember { mutableStateOf("请选择城市") }
+    var isCityPickerVisible by remember { mutableStateOf(false) }
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // 显示选择的城市
+            Text(text = "已选择城市: $selectedCity")
+
+            // 按钮用于显示城市选择器
+            Button(onClick = { isCityPickerVisible = true }) {
+                Text(text = "选择城市")
+            }
+
+        }
+        // 调用城市选择器
+        if (isCityPickerVisible) {
+            SimonCityPicker(
+                context=context,
+                isCity = true,
+                onCitySelected = { city ->
+                    selectedCity = city
+                    isCityPickerVisible = false // 选择后隐藏选择器
+                }
+            )
+        }
     }
 }
-SimonCityPicker(
-    context = context,
-    isCity = isCity,
-    onCitySelected = { city ->
-        selectedCity=city
-        isCity = false
-    }
-)
-```
 
 ## 效果展示
 
