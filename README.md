@@ -84,4 +84,4 @@ fun Demo() {
 
 ## 效果展示
 
-![示例图片](images/img.png)
+[![示例图片](images/img.png)](https://raw.githubusercontent.com/simonniex/SimonCityPicker2/master/images/img.png)
