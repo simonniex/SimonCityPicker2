@@ -1,12 +1,11 @@
-v2.3.0开始可用
+最新版本！！！v2.4.0
 # 基于JetpackCompose的省市县级联选择器
-（应该是全网唯一）
 ## 环境
 
 * **环境**:
-    - material3:1.0.0
-    - compose:1.2.0
-    - kotlinx-serialization-json:1.3.2
+    - material3:1.3.0
+    - compose:1.5.0
+    - kotlinx-serialization-json:1.6.3
 
 ## 实现思路
 
