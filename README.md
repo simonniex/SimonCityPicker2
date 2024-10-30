@@ -81,7 +81,3 @@ fun Demo() {
         }
     }
 }
-
-## 效果展示
-
-![示例图片](https://raw.githubusercontent.com/simonniex/SimonCityPicker2/master/images/img.png)
