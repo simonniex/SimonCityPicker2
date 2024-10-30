@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/simonniex/SimonCityPicker2.svg)](https://jitpack.io/#simonniex/SimonCityPicker2)
+
 基于Kotlin DSL开发的全新版本！！！
 # 基于JetpackCompose的省市县级联选择器
 ## 环境
@@ -20,8 +22,6 @@
 ## 使用方式
 ### setting.gradle
 
-**方式一**
-
 ```Kotlin
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -38,10 +38,6 @@ dependencyResolutionManagement {
 ```
 
 ---
-
-**方式二**
-
-[下载 SimonCityPicker2 AAR 文件](https://github.com/simonniex/SimonCityPicker2/releases/download/v2.4.0/SimonCityPicker2-2.4.0.aar)
 
 ## 案例
 ```Kotlin
